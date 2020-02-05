@@ -15,8 +15,8 @@ public class CalculatorTest {
     @Test
     public void testSubstract() {
         Calculator c = new Calculator();
-        assertEquals(100, c.substract(105,5));
-        assertEquals(10, c.substract(200,190));
+        assertEquals(100, c.subtract(105,5));
+        assertEquals(10, c.subtract(200,190));
     }
 
     @Test
