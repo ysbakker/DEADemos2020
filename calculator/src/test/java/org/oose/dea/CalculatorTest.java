@@ -29,7 +29,19 @@ public class CalculatorTest {
     @Test
     public void testDivide() {
         Calculator c = new Calculator();
-        assertEquals(1, c.divide(100,100));
-        assertEquals(20, c.divide(120,6));
+        double expected = 10.0/3.0;
+        assertEquals(expected, c.divide(10.0,3.0));
+        assertEquals(20.0, c.divide(120.0,6.0));
+
+    }
+
+    @Test
+    public void testDivideByZero(){
+        Calculator c = new Calculator();
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    c.divide(100,0);
+                }
+                );
     }
 }
