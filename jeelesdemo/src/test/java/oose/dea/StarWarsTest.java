@@ -53,4 +53,23 @@ public class StarWarsTest {
         assertEquals(1,jediDTO.customerId);
 
     }
+
+    @Test
+    public void unknownJediTest() {
+        // Setup Mock
+        IJediDAO jediDAO = mock(IJediDAO.class);
+        Jedi jedi = new Jedi();
+        jedi.setName("testJedi");
+        jedi.setCustomerId(1);
+        jedi.setRank(1);
+        jedi.setDarkside(true);
+        when(jediDAO.getJedi(1)).thenReturn(jedi);
+
+        starWars.setJediDAO(jediDAO);
+
+        // actual test
+        Response response = starWars.getJedi(13);
+
+        assertEquals(404,response.getStatus());
+    }
 }
