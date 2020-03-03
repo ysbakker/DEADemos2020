@@ -9,7 +9,7 @@ public class JediDAO implements IJediDAO {
 
     @Override
     public Jedi getJedi(int customerId){
-        if (customerId < 0){
+        if (customerId <= 0){
             return null;
         }
 
